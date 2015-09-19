@@ -261,6 +261,8 @@
 
 .field private mRingerModeReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mScreenshot:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+
 .field private mShowOnAirplaneConfirm:Z
 
 .field private final mShowSilentToggle:Z
@@ -476,6 +478,8 @@
     .line 215
     sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->Off:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
+    sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->Off:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
+
     iput-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions;->mDataNetworkState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
     .line 219
@@ -519,7 +523,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_46
+    if-nez v1, :cond_48
 
     const-string v1, "LUC"
 
@@ -529,7 +533,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_46
+    if-nez v1, :cond_48
 
     const-string v1, "LUO"
 
@@ -539,12 +543,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1ae
+    if-eqz v1, :cond_1b0
 
-    :cond_46
+    :cond_48
     move v1, v3
 
-    :goto_47
+    :goto_49
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/GlobalActions;->isLGTOperator:Z
 
     .line 280
@@ -556,7 +560,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_67
+    if-nez v1, :cond_69
 
     const-string v1, "SKC"
 
@@ -566,7 +570,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_67
+    if-nez v1, :cond_69
 
     const-string v1, "SKO"
 
@@ -576,12 +580,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b1
+    if-eqz v1, :cond_1b3
 
-    :cond_67
+    :cond_69
     move v1, v3
 
-    :goto_68
+    :goto_6a
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/GlobalActions;->isSKTOperator:Z
 
     .line 281
@@ -593,7 +597,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_94
 
     const-string v1, "GLB"
 
@@ -603,7 +607,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_94
 
     const-string v1, "XTC"
 
@@ -613,7 +617,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_94
 
     const-string v1, "XTE"
 
@@ -623,12 +627,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b4
+    if-eqz v1, :cond_1b6
 
-    :cond_92
+    :cond_94
     move v1, v3
 
-    :goto_93
+    :goto_95
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/GlobalActions;->isPHSalesCode:Z
 
     .line 282
@@ -879,17 +883,17 @@
 
     .line 354
     .local v0, "vibrator":Landroid/os/Vibrator;
-    if-eqz v0, :cond_1b7
+    if-eqz v0, :cond_1b9
 
     invoke-virtual {v0}, Landroid/os/Vibrator;->hasVibrator()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1b7
+    if-eqz v1, :cond_1b9
 
     move v1, v3
 
-    :goto_180
+    :goto_182
     sput-boolean v1, Lcom/android/internal/policy/impl/GlobalActions;->mHasVibrator:Z
 
     .line 356
@@ -905,9 +909,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1b9
+    if-nez v1, :cond_1bb
 
-    :goto_191
+    :goto_193
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlobalActions;->mShowSilentToggle:Z
 
     .line 359
@@ -930,49 +934,49 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1aa
+    if-eqz v1, :cond_1ac
 
     .line 364
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/GlobalActions;->mDisplayConfirm:Z
 
     .line 369
-    :cond_1aa
+    :cond_1ac
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/GlobalActions;->initCoverManager(Landroid/content/Context;)V
 
     .line 371
     return-void
 
     .end local v0    # "vibrator":Landroid/os/Vibrator;
-    :cond_1ae
+    :cond_1b0
     move v1, v2
 
     .line 279
-    goto/16 :goto_47
+    goto/16 :goto_49
 
-    :cond_1b1
+    :cond_1b3
     move v1, v2
 
     .line 280
-    goto/16 :goto_68
+    goto/16 :goto_6a
 
-    :cond_1b4
+    :cond_1b6
     move v1, v2
 
     .line 281
-    goto/16 :goto_93
+    goto/16 :goto_95
 
     .restart local v0    # "vibrator":Landroid/os/Vibrator;
-    :cond_1b7
+    :cond_1b9
     move v1, v2
 
     .line 354
-    goto :goto_180
+    goto :goto_182
 
-    :cond_1b9
+    :cond_1bb
     move v3, v2
 
     .line 356
-    goto :goto_191
+    goto :goto_193
 .end method
 
 .method static synthetic access$000()Z
@@ -3852,7 +3856,7 @@
     iput-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mProKioskToggle:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
 
     .line 1227
-    new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$8;
+    new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$99;
 
     const v3, 0x1080939
 
@@ -3860,11 +3864,25 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v2, v0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$8;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
+    invoke-direct {v2, v0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$99;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
     move-object/from16 v0, p0
 
     iput-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mRestart:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+
+    new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$Screenshot;
+
+    const v3, 0x1080a20
+
+    const v4, 0x1040b97
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v2, v0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$Screenshot;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
+
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mScreenshot:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
 
     .line 1269
     new-instance v2, Ljava/util/ArrayList;
@@ -3905,7 +3923,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18f
+    if-eqz v2, :cond_1b0
 
     .line 1279
     const/4 v2, 0x4
@@ -3996,6 +4014,22 @@
 
     invoke-direct {v0, v2, v3, v4, v5}, Lcom/android/internal/policy/impl/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/internal/policy/impl/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
 
+    const/16 v2, 0x200
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/internal/policy/impl/GlobalActions;->mScreenshot:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v4, v5}, Lcom/android/internal/policy/impl/GlobalActions;->addDialogItemsIfEnabled(ILcom/android/internal/policy/impl/GlobalActions$Action;Ljava/util/ArrayList;Z)Z
+
     .line 1287
     const-string v2, "content://com.sec.knox.provider2/KnoxCustomManagerService1"
 
@@ -4009,14 +4043,14 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_17e
+    if-ne v2, v3, :cond_19f
 
     .line 1288
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mProKioskToggle:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
 
-    if-eqz v2, :cond_17e
+    if-eqz v2, :cond_19f
 
     .line 1289
     move-object/from16 v0, p0
@@ -4030,7 +4064,7 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1293
-    :cond_17e
+    :cond_19f
     const/16 v2, 0x200
 
     move-object/from16 v0, p0
@@ -4051,8 +4085,8 @@
     const/4 v10, 0x0
 
     .line 1297
-    :cond_18f
-    if-eqz v10, :cond_2f0
+    :cond_1b0
+    if-eqz v10, :cond_326
 
     .line 1299
     move-object/from16 v0, p0
@@ -4080,12 +4114,12 @@
     const/16 v17, 0x0
 
     .local v17, "i":I
-    :goto_1a7
+    :goto_1c8
     array-length v2, v14
 
     move/from16 v0, v17
 
-    if-ge v0, v2, :cond_2cf
+    if-ge v0, v2, :cond_305
 
     .line 1305
     aget-object v9, v14, v17
@@ -4096,20 +4130,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1b7
+    if-eqz v2, :cond_1d8
 
     .line 1304
-    :cond_1b4
-    :goto_1b4
+    :cond_1d5
+    :goto_1d5
     add-int/lit8 v17, v17, 0x1
 
-    goto :goto_1a7
+    goto :goto_1c8
 
     .line 1310
-    :cond_1b7
+    :cond_1d8
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v2, :cond_1d3
+    if-nez v2, :cond_1f4
 
     .line 1311
     const-string v2, "emergencymode"
@@ -4118,7 +4152,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1b4
+    if-nez v2, :cond_1d5
 
     const-string v2, "users"
 
@@ -4126,7 +4160,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1b4
+    if-nez v2, :cond_1d5
 
     const-string v2, "settings"
 
@@ -4134,17 +4168,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_1b4
+    if-nez v2, :cond_1d5
 
     .line 1317
-    :cond_1d3
+    :cond_1f4
     const-string v2, "power"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1ee
+    if-eqz v2, :cond_20f
 
     .line 1318
     move-object/from16 v0, p0
@@ -4162,21 +4196,21 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1348
-    :cond_1ea
-    :goto_1ea
+    :cond_20b
+    :goto_20b
     invoke-virtual {v11, v9}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1b4
+    goto :goto_1d5
 
     .line 1319
-    :cond_1ee
+    :cond_20f
     const-string v2, "airplane"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_202
+    if-eqz v2, :cond_223
 
     .line 1320
     move-object/from16 v0, p0
@@ -4189,17 +4223,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1ea
+    goto :goto_20b
 
     .line 1321
-    :cond_202
+    :cond_223
     const-string v2, "datamode"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_216
+    if-eqz v2, :cond_237
 
     .line 1322
     move-object/from16 v0, p0
@@ -4212,17 +4246,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1ea
+    goto :goto_20b
 
     .line 1323
-    :cond_216
+    :cond_237
     const-string v2, "bugreport"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_241
+    if-eqz v2, :cond_262
 
     .line 1324
     move-object/from16 v0, p0
@@ -4241,13 +4275,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1ea
+    if-eqz v2, :cond_20b
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/GlobalActions;->isCurrentUserOwner()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1ea
+    if-eqz v2, :cond_20b
 
     .line 1326
     move-object/from16 v0, p0
@@ -4260,17 +4294,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1ea
+    goto :goto_20b
 
     .line 1328
-    :cond_241
+    :cond_262
     const-string v2, "restart"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_255
+    if-eqz v2, :cond_276
 
     .line 1329
     move-object/from16 v0, p0
@@ -4283,17 +4317,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1ea
+    goto :goto_20b
 
     .line 1330
-    :cond_255
+    :cond_276
     const-string v2, "emergencymode"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_269
+    if-eqz v2, :cond_28a
 
     .line 1331
     move-object/from16 v0, p0
@@ -4306,24 +4340,45 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1ea
+    goto :goto_20b
+
+    :cond_28a
+    const-string v2, "screenshot"
+
+    invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_29f
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/internal/policy/impl/GlobalActions;->mScreenshot:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_20b
 
     .line 1332
-    :cond_269
+    :cond_29f
     const-string v2, "silent"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_284
+    if-eqz v2, :cond_2ba
 
     .line 1333
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mShowSilentToggle:Z
 
-    if-eqz v2, :cond_1ea
+    if-eqz v2, :cond_20b
 
     .line 1334
     move-object/from16 v0, p0
@@ -4336,17 +4391,17 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1ea
+    goto/16 :goto_20b
 
     .line 1336
-    :cond_284
+    :cond_2ba
     const-string v2, "users"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2a0
+    if-eqz v2, :cond_2d6
 
     .line 1337
     const-string v2, "fw.power_user_switcher"
@@ -4357,7 +4412,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1ea
+    if-eqz v2, :cond_20b
 
     .line 1338
     move-object/from16 v0, p0
@@ -4368,17 +4423,17 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/policy/impl/GlobalActions;->addUsersToMenu(Ljava/util/ArrayList;)V
 
-    goto/16 :goto_1ea
+    goto/16 :goto_20b
 
     .line 1340
-    :cond_2a0
+    :cond_2d6
     const-string v2, "settings"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2b5
+    if-eqz v2, :cond_2eb
 
     .line 1341
     move-object/from16 v0, p0
@@ -4391,10 +4446,10 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1ea
+    goto/16 :goto_20b
 
     .line 1345
-    :cond_2b5
+    :cond_2eb
     const-string v2, "GlobalActions"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4417,11 +4472,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1ea
+    goto/16 :goto_20b
 
     .line 1350
     .end local v9    # "actionKey":Ljava/lang/String;
-    :cond_2cf
+    :cond_305
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$SilentModeAction;
 
     move-object/from16 v0, p0
@@ -4460,12 +4515,12 @@
     .end local v11    # "addedKeys":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     .end local v14    # "defaultActions":[Ljava/lang/String;
     .end local v17    # "i":I
-    :cond_2f0
+    :cond_326
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mKnoxCustomSystemManager:Landroid/app/enterprise/knoxcustom/SystemManager;
 
-    if-eqz v2, :cond_337
+    if-eqz v2, :cond_36d
 
     move-object/from16 v0, p0
 
@@ -4475,7 +4530,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_337
+    if-eqz v2, :cond_36d
 
     .line 1354
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/GlobalActions;->clearCustomDialogItems()Z
@@ -4491,7 +4546,7 @@
 
     .line 1356
     .local v16, "fromDB":Ljava/util/List;, "Ljava/util/List<Landroid/app/enterprise/knoxcustom/KnoxCustomPowerItem;>;"
-    if-eqz v16, :cond_337
+    if-eqz v16, :cond_36d
 
     .line 1357
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -4499,12 +4554,12 @@
     move-result-object v18
 
     .local v18, "i$":Ljava/util/Iterator;
-    :goto_311
+    :goto_347
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_337
+    if-eqz v2, :cond_36d
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4538,13 +4593,13 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/policy/impl/GlobalActions;->addCustomDialogItems(Landroid/graphics/drawable/BitmapDrawable;Ljava/lang/String;Landroid/content/Intent;ILjava/util/ArrayList;)Z
 
-    goto :goto_311
+    goto :goto_347
 
     .line 1368
     .end local v16    # "fromDB":Ljava/util/List;, "Ljava/util/List<Landroid/app/enterprise/knoxcustom/KnoxCustomPowerItem;>;"
     .end local v18    # "i$":Ljava/util/Iterator;
     .end local v19    # "item":Landroid/app/enterprise/knoxcustom/KnoxCustomPowerItem;
-    :cond_337
+    :cond_36d
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
 
     const/4 v3, 0x0
@@ -4572,14 +4627,14 @@
     .local v22, "params":Lcom/android/internal/app/AlertController$AlertParams;
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v2, :cond_356
+    if-nez v2, :cond_38c
 
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v2, :cond_46f
+    if-eqz v2, :cond_4a5
 
     .line 1373
-    :cond_356
+    :cond_38c
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
@@ -4603,7 +4658,7 @@
     iput-boolean v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mForceInverseBackground:Z
 
     .line 1402
-    :goto_369
+    :goto_39f
     new-instance v15, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;
 
     move-object/from16 v0, p0
@@ -4629,11 +4684,11 @@
     .line 1405
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v2, :cond_57b
+    if-nez v2, :cond_5b1
 
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsClearCover:Z
 
-    if-nez v2, :cond_57b
+    if-nez v2, :cond_5b1
 
     .line 1406
     const-string v2, "GlobalActions"
@@ -4694,7 +4749,7 @@
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    if-eqz v2, :cond_498
+    if-eqz v2, :cond_4ce
 
     move-object/from16 v0, p0
 
@@ -4706,7 +4761,7 @@
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_498
+    if-ne v2, v3, :cond_4ce
 
     .line 1414
     const v2, 0x109006a
@@ -4729,12 +4784,12 @@
     invoke-virtual {v15, v2}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
     .line 1477
-    :goto_3db
+    :goto_411
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/GlobalActions;->isMiniCoverClosed()Z
 
     move-result v2
 
-    if-eqz v2, :cond_574
+    if-eqz v2, :cond_5aa
 
     .line 1478
     new-instance v25, Landroid/view/ViewGroup$LayoutParams;
@@ -4759,7 +4814,7 @@
     .end local v20    # "lf":Landroid/view/LayoutInflater;
     .end local v24    # "v":Landroid/view/View;
     .end local v25    # "vglp":Landroid/view/ViewGroup$LayoutParams;
-    :goto_3f1
+    :goto_427
     const/4 v2, 0x0
 
     invoke-virtual {v15, v2}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->setCanceledOnTouchOutside(Z)V
@@ -4767,14 +4822,14 @@
     .line 1492
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsCoverOpen:Z
 
-    if-nez v2, :cond_3fd
+    if-nez v2, :cond_433
 
     sget-boolean v2, Lcom/android/internal/policy/impl/GlobalActions;->mIsClearCover:Z
 
-    if-eqz v2, :cond_46e
+    if-eqz v2, :cond_4a4
 
     .line 1493
-    :cond_3fd
+    :cond_433
     invoke-virtual {v15}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v2
@@ -4879,7 +4934,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_46e
+    if-ne v2, v3, :cond_4a4
 
     .line 1515
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$13;
@@ -4892,12 +4947,12 @@
 
     .line 1536
     .end local v12    # "bottomPadding":I
-    :cond_46e
+    :cond_4a4
     return-object v15
 
     .line 1377
     .end local v15    # "dialog":Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;
-    :cond_46f
+    :cond_4a5
     new-instance v2, Landroid/widget/LinearLayout;
 
     move-object/from16 v0, p0
@@ -4940,14 +4995,14 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    goto/16 :goto_369
+    goto/16 :goto_39f
 
     .line 1426
     .end local v21    # "lllp":Landroid/widget/LinearLayout$LayoutParams;
     .restart local v15    # "dialog":Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;
     .restart local v20    # "lf":Landroid/view/LayoutInflater;
     .restart local v24    # "v":Landroid/view/View;
-    :cond_498
+    :cond_4ce
     const v2, 0x109006b
 
     const/4 v3, 0x0
@@ -4967,7 +5022,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4b6
+    if-nez v2, :cond_4ec
 
     const-string v2, "mocha"
 
@@ -4977,10 +5032,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_553
+    if-eqz v2, :cond_589
 
     .line 1428
-    :cond_4b6
+    :cond_4ec
     const v2, 0x102035a
 
     move-object/from16 v0, v24
@@ -4991,12 +5046,12 @@
 
     .line 1433
     .local v13, "crossBtn":Landroid/view/View;
-    :goto_4bf
+    :goto_4f5
     invoke-virtual {v13}, Landroid/view/View;->getHoverPopupWindow()Landroid/widget/HoverPopupWindow;
 
     move-result-object v2
 
-    if-eqz v2, :cond_4d2
+    if-eqz v2, :cond_508
 
     .line 1434
     const/4 v2, 0x1
@@ -5013,7 +5068,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/HoverPopupWindow;->setPopupGravity(I)V
 
     .line 1439
-    :cond_4d2
+    :cond_508
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -5079,7 +5134,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_51c
+    if-nez v2, :cond_552
 
     .line 1459
     sget-object v2, Lcom/android/internal/policy/impl/GlobalActions;->mCoverViewListView:Landroid/widget/ListView;
@@ -5089,7 +5144,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/ListView;->setEnabled(Z)V
 
     .line 1461
-    :cond_51c
+    :cond_552
     sget-object v2, Lcom/android/internal/policy/impl/GlobalActions;->mCoverViewListView:Landroid/widget/ListView;
 
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$11;
@@ -5121,7 +5176,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_55e
+    if-eqz v2, :cond_594
 
     .line 1471
     move-object/from16 v0, p0
@@ -5142,12 +5197,12 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_3db
+    goto/16 :goto_411
 
     .line 1430
     .end local v13    # "crossBtn":Landroid/view/View;
     .end local v23    # "titleView":Landroid/widget/TextView;
-    :cond_553
+    :cond_589
     const v2, 0x1020056
 
     move-object/from16 v0, v24
@@ -5157,11 +5212,11 @@
     move-result-object v13
 
     .restart local v13    # "crossBtn":Landroid/view/View;
-    goto/16 :goto_4bf
+    goto/16 :goto_4f5
 
     .line 1473
     .restart local v23    # "titleView":Landroid/widget/TextView;
-    :cond_55e
+    :cond_594
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -5180,27 +5235,27 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_3db
+    goto/16 :goto_411
 
     .line 1481
     .end local v13    # "crossBtn":Landroid/view/View;
     .end local v23    # "titleView":Landroid/widget/TextView;
-    :cond_574
+    :cond_5aa
     move-object/from16 v0, v24
 
     invoke-virtual {v15, v0}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->setContentView(Landroid/view/View;)V
 
-    goto/16 :goto_3f1
+    goto/16 :goto_427
 
     .line 1485
     .end local v20    # "lf":Landroid/view/LayoutInflater;
     .end local v24    # "v":Landroid/view/View;
-    :cond_57b
+    :cond_5b1
     const v2, 0x1040110
 
     invoke-virtual {v15, v2}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->setTitle(I)V
 
-    goto/16 :goto_3f1
+    goto/16 :goto_427
 .end method
 
 .method private getBugReportAction()Lcom/android/internal/policy/impl/GlobalActions$Action;
